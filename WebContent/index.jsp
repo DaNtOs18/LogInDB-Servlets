@@ -4,9 +4,16 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Login BBDD</title>
 </head>
 <body>
+
+<form action="logica" method="post">
+
+	Usuario: <input type="text" name="usr"/>
+	Contraseña: <input type="password" name="pass"/>
+
+<input type="submit" value="LogIn" name="login">
 
 </body>
 </html>

@@ -31,22 +31,33 @@ public class Conexion {
 		return conexion;
 	}
 
-	public static void logIng(String usuario, String contrasena) {
+	public static Boolean logIng(String usuario, String contrasena) {
 
 		String sql = "SELECT * FROM `usuarios` WHERE usuario=" + "'" + usuario + "' AND clave=" + "'" + contrasena + "'";
-
+		Boolean log = null;
+		
 		try {
 			conexion = conectar("localhost:3306", "log", "root", "");
 			Statement stmt = conexion.createStatement();
 			ResultSet rS = stmt.executeQuery(sql);
 			// ResultSetMetaData metaData = rS.getMetaData();
 
-			// if (!rS.first())// no hay registros
-			// return null;
+			 if (!rS.first()) {
+				 log = false;
+			 }
+			 
+			 else {
+				 log = true;
+			 }
+		
 
 		} catch (SQLException e) {
+			log = false;
 			System.out.println("Error leyendo Bases de Datos -> " + e.getMessage());
 		}
+		return log;
+		
+		
 
 	}
 }

@@ -40,7 +40,14 @@ public class Controlador extends HttpServlet {
 			String contra = request.getParameter("pass");
 			se.setAttribute("con", contra);
 			
-			Conexion.logIng(usuario,contra);
+			Boolean log = Conexion.logIng(usuario,contra);
+			
+			if(log) {
+				request.getRequestDispatcher("jsp/exito.jsp").forward(request, response);
+			}
+			else {
+				request.getRequestDispatcher("jsp/fallo.jsp").forward(request, response);
+			}
 			
 		}
 	}

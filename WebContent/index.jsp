@@ -15,5 +15,7 @@
 
 <input type="submit" value="LogIn" name="login">
 
+<p id="mensaje"> </p>
+
 </body>
 </html>
